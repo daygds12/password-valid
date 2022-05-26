@@ -1,0 +1,32 @@
+.App {
+  display: block;
+  text-align: center;
+}
+
+input{
+  
+ background-color:  rgba(245, 238, 238, 0.8);
+  border-radius: 5%;
+  margin-top: 5px;
+  padding: 6px;
+}
+
+button{
+  padding: 5px;
+  cursor: pointer;
+
+}
+
+button:hover{
+  color: rgb(255, 30, 0);
+
+}
+button:hover {
+  transform: scale(1.1);
+  transition: all 0.5s;
+} 
+
+
+p{
+  font-weight: 2%;
+}
