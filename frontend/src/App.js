@@ -3,7 +3,9 @@ import './App.css';
 import api from './services/api'
 
 
+
 function App() {
+
 
   const[messenger, setMessenger] = useState(false)
   const[form, setForm] = useState({
@@ -11,7 +13,7 @@ function App() {
      senha: '',
 
   })
-
+   //valor
   function handleOnChange(e){
      setForm({
        ...form, [e.target.name]:e.target.value
@@ -19,7 +21,7 @@ function App() {
     
      
     }
-    
+    //PREVENT DEFAULT= parar acao padrao
     async function handleSubmit (e){
       e.preventDefault()
       
@@ -29,16 +31,23 @@ function App() {
         return
        }
       if(!/[A-Z]/.test(form.senha)){
-        setMessenger('Precisa incluir uma letra maiuscula e ter até 9 caracteres')
+        setMessenger('Você deve incluir uma letra maiuscula e ter até 9 caracteres')
         return
       }
+
+      if(!/[a-z]/.test(form.senha)){
+        setMessenger('Você deve incluir uma letra minuscula e ter até 9 caracteres')
+        return
+      }
+
+      
       if(!/\W|_/.test(form.senha)){
-        setMessenger('Precisa incluir um caractere especial e ter até 9 caracteres')
+        setMessenger('Você deve incluir um caractere especial e ter até 9 caracteres')
         return
       }
     
       if(form.senha.length > 9){
-        setMessenger("Senha precisa até 9 digitos")
+        setMessenger("A senha precisa ter até 9 digitos")
         return
        }
      try {
@@ -63,17 +72,18 @@ function App() {
         
   }
 
- 
+   
 
   return (
+    
     <div className="App">
 
-      <div><h1>Login</h1></div>
+      <div className='login'><h1>Login</h1></div>
       <form onSubmit={handleSubmit}>
             <input value={form.email} onChange={handleOnChange} type="email" name="email" placeholder='Digite seu e-mail'/>
             <input value={form.senha}  onChange={handleOnChange} type="password" name="senha" placeholder='Digite sua senha'/>
        
-           <button >clique aqui</button>
+           <button >entrar</button>
            
       </form>
       {messenger && <p>{messenger}</p>}
@@ -85,7 +95,8 @@ function App() {
         <p>* Senha deve conter um caractere especial</p>
         
       </div>
-    </div>
+     
+  </div>
   );
 }
 
