@@ -8,9 +8,11 @@ $ Clone este repositório
 
 # Instale as dependências
 $ npm install
+$ se necessario npm i axios
 
-# Execute a aplicação 
-$ npm start 
+# Execute a aplicação
+
+$ cd frontend -npm run start
 $ para rodar o backend = npm run dev
 
 
@@ -19,4 +21,4 @@ $ para rodar o backend = npm run dev
 -Node
 -Html
 -Css
--React
+-Reactjs
